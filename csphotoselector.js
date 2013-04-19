@@ -560,7 +560,10 @@ var CSPhotoSelector = (function(module, $) {
 			// loop through photo albums
 			var i, len, html = '';
 			for (i = 0, len = albums.length; i < len; i += 1) {
-				html += buildAlbumMarkup(albums[i], accessToken);
+				//Check to not show empty album.
+				if (albums[i].count != null) {
+					html += buildAlbumMarkup(albums[i], accessToken);
+				}
 			}
 			$albums = $(html);
 		};
